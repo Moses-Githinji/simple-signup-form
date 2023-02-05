@@ -4,7 +4,7 @@ import axios from "axios";
 const Users = () => {
   const [data, setData] = React.useState(null);
 
-  const url = "http://localhost:8100/api/users";
+  const url = "https://clean-pink-hare.cyclic.app/api/users";
 
   useEffect(() => {
     axios.get(url).then((response) => {

@@ -8,7 +8,7 @@ const SignUp = () => {
 
   const config = {
     method: "post",
-    url: "https://clean-pink-hare.cyclic.app/register",
+    url: "https://clean-pink-hare.cyclic.app/api/auth/register",
     data: {
       username,
       email,
