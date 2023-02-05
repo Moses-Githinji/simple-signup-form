@@ -26,6 +26,9 @@ const SignUp = () => {
     } catch (error) {
       throw error;
     }
+    setUserName("");
+    setEmail("");
+    setPhoneNumber("");
   };
 
   return (
