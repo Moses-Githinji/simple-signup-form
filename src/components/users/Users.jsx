@@ -18,13 +18,33 @@ const Users = () => {
 
   return (
     <div className="all-registered-users-container">
-      {data.map((user) => (
+      {/* {data.map((user) => (
         <div className="individual-user-card" key={user._id}>
           <p className="username">{user.username}</p>
           <p className="username">{user.email}</p>
           <p className="username">{user.phoneNumber}</p>
-        </div>
-      ))}
+        </div> */}
+
+      <table className="users-data">
+        <thead>
+          <tr>Username</tr>
+          <tr>Email</tr>
+          <tr>Phone Number</tr>
+        </thead>
+        {data.map((user) => (
+          <tbody key={user._id} className="all-data">
+            <tr>
+              <td>{user.username}</td>
+            </tr>
+            <tr>
+              <td>{user.email}</td>
+            </tr>
+            <tr>
+              <td className="table-data">{user.phoneNumber}</td>
+            </tr>
+          </tbody>
+        ))}
+      </table>
     </div>
   );
 };

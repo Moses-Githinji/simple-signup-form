@@ -70,3 +70,26 @@
   width: 90%;
   padding: 0.5rem;
 }
+
+.users-data {
+  border: 1px solid whitesmoke;
+  width: 80%;
+  margin: 40px auto;
+}
+
+.all-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+thead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+tr {
+  padding: 0.5rem;
+  text-align: start;
+}
