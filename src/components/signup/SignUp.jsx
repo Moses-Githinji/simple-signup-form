@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const SignUp = () => {
-  // const [username, setUserName] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  // const [email, setEmail] = useState("");
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    phoneNumber: "",
-  });
+  const [username, setUserName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+
+  const config = {
+    method: "post",
+    url: "http://localhost:8100/api/auth/register",
+    data: {
+      username,
+      email,
+      phoneNumber,
+    },
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:8100/api/auth//register", user);
+      await axios(config).then((result) => {
+        console.log(result);
+      });
     } catch (error) {
       throw error;
     }
@@ -23,31 +30,35 @@ const SignUp = () => {
 
   return (
     <div className="register-form-container">
-      <div className="all-inputs-container">
+      <div className="text-field">
         <input
           type="text"
-          name="username"
-          // value={username}
+          value={username}
+          onChange={(event) => setUserName(event.target.value)}
           id="username"
           placeholder="Your Name..."
         />
+      </div>
+      <div className="emal-field">
         <input
           type="email"
-          name="email"
-          // value={email}
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
           id="email"
           placeholder="Your EMail..."
         />
+      </div>
+      <div className="phone-field">
         <input
           type="tel"
-          name="telephone"
-          // value={phoneNumber}
+          value={phoneNumber}
+          onChange={(event) => setPhoneNumber(event.target.value)}
           id="telephone"
-          placeholder="Your Telephone"
+          placeholder="Your Telephone..."
         />
       </div>
 
-      <button type="submit" onClick={onSubmit}>
+      <button type="submit" onClick={onSubmit} className="submit-btn">
         Submit
       </button>
     </div>
